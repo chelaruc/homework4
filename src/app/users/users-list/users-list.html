@@ -1,0 +1,12 @@
+<p>Users: {{ users().length }}</p>
+
+<button (click)="loadUsers()" [disabled]="loading()">
+  Load more
+</button>
+
+<div class="user-item" *ngFor="let user of users()">
+  <img [src]="user.avatar_url" width="40" />
+  <a [routerLink]="['/users', user.login]">
+    {{ user.login }}
+  </a>
+</div>

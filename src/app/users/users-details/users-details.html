@@ -1,0 +1,17 @@
+<button class="back-button" [routerLink]="['/users']">
+  ← Back to Users
+</button>
+
+<div *ngIf="user()">
+  <h2>{{ user().login }}</h2>
+  <p><strong>Type:</strong> {{ user().type }}</p>
+
+  <h3>Repositories</h3>
+  <ul>
+    <li *ngFor="let repo of repos()">
+      <a [href]="repo.html_url" target="_blank">{{ repo.name }}</a>
+    </li>
+  </ul>
+</div>
+
+<p *ngIf="loading()">Loading...</p>
